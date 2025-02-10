@@ -10,6 +10,18 @@ html, body {
     height: 100%;
 }
 
+.iframe-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;     /* 貼齊底部 */
+    left: 0;       /* 從左邊開始 */
+    width: 100%;   /* 佔滿整個寬度 */
+    height: 40px;  /* 設定一個足夠遮住標誌的高度 */
+    background-color: #1a1a1a;  /* 使用與聊天界面相同的深色背景 */
+    pointer-events: none;  /* 確保不會影響點擊事件 */
+    z-index: 999999;
+}
+
 /* 滾動條樣式 */
 ::-webkit-scrollbar {
     width: 6px;
