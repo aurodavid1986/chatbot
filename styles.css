@@ -18,7 +18,7 @@ html, body {
 
 .initial-mask {
     position: absolute;
-    top: 63.5%;  /* 調整垂直位置 */
+    top: 64%;  /* 調整垂直位置 */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 140px;  /* 調整寬度 */
