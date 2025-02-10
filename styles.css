@@ -7,6 +7,7 @@ html, body {
 
 .iframe-container {
   position: relative;
+  height: 100%;  /* 確保容器佔滿高度 */
 }
 
 .iframe-container::after {
@@ -14,10 +15,10 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100px;  /* 寬度可根據實際需要調整 */
-  height: 25px;  /* 高度可根據實際需要調整 */
+  width: 120px;  /* 寬度可根據實際需要調整 */
+  height: 30px;  /* 高度可根據實際需要調整 */
   background-color: #2f313b;  /* 聊天框背景相同的顏色 */
-  z-index: 999;
+  z-index: 9999;
 }
 
 /* 滾動條樣式 */
