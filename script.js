@@ -1,11 +1,11 @@
 // 公司列表數據及對應的 chatbot URL
 const companies = [
     {
-        name: '案例Ａ公司_bot',
+        name: 'Ｏ企業案例_bot',
         url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/06/07/20250206073451-QHDFSNPW.json'
     },
     {
-        name: '案例Ｂ公司_bot',
+        name: '著名飯店案例_bot',
         url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/10/07/20250210073308-EX59Z6VY.json'
     }
 ];
