@@ -5,21 +5,33 @@ html, body {
     padding: 0;
 }
 
+.bottom-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;  /* 調整高度 */
+    background-color: #fbfbfc;  /* 淺色主題背景色 */
+    z-index: 999999;
+    pointer-events: none;
+}
+
+.initial-mask {
+    position: absolute;
+    top: 45%;  /* 調整垂直位置 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;  /* 調整寬度 */
+    height: 35px;  /* 調整高度 */
+    background-color: #fbfbfc;
+    z-index: 999999;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
 .iframe-container {
     position: relative;
     height: 100%;
-}
-
-.iframe-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;     /* 貼齊底部 */
-    left: 0;       /* 從左邊開始 */
-    width: 100%;   /* 佔滿整個寬度 */
-    height: 40px;  /* 設定一個足夠遮住標誌的高度 */
-    background-color: #f4f6f9;  /* 使用與聊天界面相同的淺/深色背景#fbfbfd/#1a1a1a */
-    pointer-events: none;  /* 確保不會影響點擊事件 */
-    z-index: 999999;
 }
 
 /* 滾動條樣式 */
