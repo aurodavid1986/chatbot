@@ -2,11 +2,11 @@
 const companies = [
     {
         name: 'Okuma實能釣具_chatbot',
-        url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/06/07/20250206073451-QHDFSNPW.json'
+        url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/06/07/20250206073451-QHDFSNPW.json&hideWidget=true&hideBotpressLogo=true'
     },
     {
         name: '瑞山林台北中和飯店_chatbot',
-        url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/10/07/20250210073308-EX59Z6VY.json'
+        url: 'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/10/07/20250210073308-EX59Z6VY.json&hideWidget=true&hideBotpressLogo=true'
     }
 ];
 
