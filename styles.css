@@ -1,0 +1,52 @@
+/* 自定義全局樣式 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* 按鈕樣式 */
+.company-button {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    color: #4a5568;
+    background: white;
+    border: none;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.15s;
+}
+
+.company-button:hover {
+    background: #f7fafc;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .sidebar-menu {
+        width: 100%;
+    }
+    
+    .chatbot-container {
+        margin-top: 1rem;
+    }
+}
