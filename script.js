@@ -30,17 +30,21 @@ function handleInitialMask() {
 
     // 監控 iframe 內容變化
     const observer = new MutationObserver((mutations) => {
-        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-        const chatContent = iframeDocument.querySelector('.chat-content');
-        
-        if (chatContent && chatContent.children.length > 0) {
-            // 當有聊天內容時，隱藏初始遮罩
-            initialMask.style.opacity = '0';
-            // 一段時間後移除元素
-            setTimeout(() => {
-                initialMask.style.display = 'none';
-            }, 300);
-            observer.disconnect();
+        try {
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            // 修改選擇器，檢查是否有對話內容
+            const messages = iframeDocument.querySelectorAll('.bpw-chat-bubble');
+            
+            if (messages.length > 0) {
+                // 當有對話內容時，隱藏初始遮罩
+                initialMask.style.opacity = '0';
+                setTimeout(() => {
+                    initialMask.style.display = 'none';
+                }, 300);
+                observer.disconnect();
+            }
+        } catch (e) {
+            console.log('Unable to access iframe content:', e);
         }
     });
 
@@ -48,13 +52,14 @@ function handleInitialMask() {
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
         observer.observe(iframeDocument.body, {
             childList: true,
-            subtree: true
+            subtree: true,
+            attributes: true,  // 添加屬性變化監控
+            characterData: true  // 添加文本變化監控
         });
     } catch (e) {
-        console.log('Unable to access iframe content');
+        console.log('Unable to setup observer:', e);
     }
 }
-
 // 修改 selectCompany 函數
 function selectCompany(company) {
     console.log('Selected company:', company.name);
