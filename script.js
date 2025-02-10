@@ -24,20 +24,52 @@ function hideBotpressLogo() {
     }
 }
 
-// 選擇公司的處理函數
+function handleInitialMask() {
+    const initialMask = document.getElementById('initialMask');
+    const iframe = document.getElementById('chatbot-frame');
+
+    // 監控 iframe 內容變化
+    const observer = new MutationObserver((mutations) => {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        const chatContent = iframeDocument.querySelector('.chat-content');
+        
+        if (chatContent && chatContent.children.length > 0) {
+            // 當有聊天內容時，隱藏初始遮罩
+            initialMask.style.opacity = '0';
+            // 一段時間後移除元素
+            setTimeout(() => {
+                initialMask.style.display = 'none';
+            }, 300);
+            observer.disconnect();
+        }
+    });
+
+    try {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        observer.observe(iframeDocument.body, {
+            childList: true,
+            subtree: true
+        });
+    } catch (e) {
+        console.log('Unable to access iframe content');
+    }
+}
+
+// 修改 selectCompany 函數
 function selectCompany(company) {
     console.log('Selected company:', company.name);
-    // 更新 iframe 的 src
     const chatbotFrame = document.getElementById('chatbot-frame');
+    const initialMask = document.getElementById('initialMask');
+    
+    // 重置遮罩狀態
+    initialMask.style.opacity = '1';
+    initialMask.style.display = 'block';
+    
     chatbotFrame.src = company.url;
     
-    // 在 iframe 加載完成後嘗試隱藏 logo
+    // iframe 加載完成後設置監控
     chatbotFrame.onload = function() {
-        // 初次嘗試隱藏
-        hideBotpressLogo();
-        
-        // 設置定期檢查，因為聊天內容可能會動態更新
-        setInterval(hideBotpressLogo, 1000);
+        handleInitialMask();
     };
     
     // 更新按鈕樣式
