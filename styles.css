@@ -5,6 +5,21 @@ html, body {
     padding: 0;
 }
 
+.iframe-container {
+  position: relative;
+}
+
+.iframe-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;  /* 寬度可根據實際需要調整 */
+  height: 25px;  /* 高度可根據實際需要調整 */
+  background-color: #2f313b;  /* 聊天框背景相同的顏色 */
+  z-index: 999;
+}
+
 /* 滾動條樣式 */
 ::-webkit-scrollbar {
     width: 6px;
