@@ -5,12 +5,12 @@ html, body {
     padding: 0;
 }
 
-.iframe-container {
+/* .iframe-container {
   position: relative;
   height: 100%;  /* 確保容器佔滿高度 */
-}
+/*}*/
 
-.iframe-container::after {
+/* .iframe-container::after {
     content: '';
     position: fixed;  /* 改用 fixed 定位 */
     bottom: 8px;     /* 稍微調整底部位置 */
@@ -20,7 +20,7 @@ html, body {
     background-color: #1a1a1a;  /* 調整顏色以匹配 Botpress 深色主題 */
     z-index: 999999; /* 提高 z-index 確保在最上層 */
     pointer-events: none; /* 確保不會影響點擊事件 */
-}
+/*}*/
 
 /* 滾動條樣式 */
 ::-webkit-scrollbar {
